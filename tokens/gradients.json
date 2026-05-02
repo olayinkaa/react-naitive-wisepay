@@ -1,0 +1,12 @@
+{
+  "gradient": {
+    "background": { "value": ["#FFFFFF", "#ECEEF21A"] },
+    "surface": { "value": ["#1e293b", "#334155"] },
+    "primary": { "value": ["#3b82f6", "#1d4ed8"] },
+    "success": { "value": ["#10b981", "#059669"] },
+    "warning": { "value": ["#f59e0b", "#d97706"] },
+    "danger": { "value": ["#ef4444", "#dc2626"] },
+    "muted": { "value": ["#374151", "#4b5563"] },
+    "empty": { "value": ["#374151", "#4b5563"] }
+  }
+}

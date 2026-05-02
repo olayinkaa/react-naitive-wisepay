@@ -1,0 +1,24 @@
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css";
+
+@import "nativewind/theme";
+
+@import "./assets/styles/theme.css";
+
+@theme {
+
+
+   --text-12: 12px;
+   --text-12--leading:16px;
+
+   --radius-10: 10px
+}
+
+
+@layer components {
+ .card {
+    @apply rounded-3xl p-5 bg-white border border-white/50 shadow-sm
+ }
+}
+

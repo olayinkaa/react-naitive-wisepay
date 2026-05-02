@@ -1,0 +1,33 @@
+{
+  "color": {
+    "base": {
+      "navy": { "value": "#081126" },
+      "amber": { "value": "#fff9e3" },
+      "amber-card": { "value": "#fff8e7" },
+      "amber-muted": { "value": "#f6eecf" },
+      "coral": { "value": "#ea7a53" },
+      "green": { "value": "#16a34a" },
+      "red": { "value": "#dc2626" },
+      "teal": { "value": "#8fd1bd" },
+      "mist": { "value": "#717182" },
+      "mist-100": { "value": "#ECECF0" },
+      "mist-200": { "value": "#F3F3F5" },
+      "black-60": { "value": "rgba(0, 0, 0, 0.6)" },
+      "black-10": { "value": "rgba(0, 0, 0, 0.1)" }
+    },
+    "background": { "value": "{color.base.amber}" },
+    "foreground": { "value": "{color.base.navy}" },
+    "card": { "value": "{color.base.amber-card}" },
+    "muted": { "value": "{color.base.amber-muted}" },
+    "muted-foreground": { "value": "{color.base.black-60}" },
+    "primary": { "value": "{color.base.navy}" },
+    "accent": { "value": "{color.base.coral}" },
+    "border": { "value": "{color.base.black-10}" },
+    "success": { "value": "{color.base.green}" },
+    "destructive": { "value": "{color.base.red}" },
+    "subscription": { "value": "{color.base.teal}" },
+    "mist": { "value": "{color.base.mist}" },
+    "mist-100": { "value": "{color.base.mist-100}" },
+    "mist-200": { "value": "{color.base.mist-200}" }
+  }
+}

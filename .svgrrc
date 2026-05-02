@@ -1,0 +1,24 @@
+{
+  "native": true,
+  "icon": true,
+  "typescript": true,
+  "memo": false,
+  "expandProps": "end",
+  "replaceAttrValues": {
+    "#000": "{props.color}",
+    "#000000": "{props.color}",
+    "#0765FF": "{props.color}",
+    "#1C274C": "{props.color}",
+    "#667085": "{props.color}",
+    "#039855": "{props.color}",
+     "white": "{props.color}"
+  },
+  "prettier": false,
+  "svgoConfig": {
+    "plugins": [
+      {
+        "name": "removeXMLNS"
+      }
+    ]
+  }
+}

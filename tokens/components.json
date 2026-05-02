@@ -1,0 +1,14 @@
+{
+  "component": {
+    "text-h4": {
+      "font-size": { "value": "24px" },
+      "line-height": { "value": "32px" },
+      "letter-spacing": { "value": "0.07px" }
+    },
+    "text-psm": {
+      "font-size": { "value": "16px" },
+      "line-height": { "value": "24px" },
+      "letter-spacing": { "value": "-0.31px" }
+    }
+  }
+}

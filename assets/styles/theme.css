@@ -1,0 +1,59 @@
+/* ─── Design Tokens ───────────────────────── */
+@theme {
+  --color-background: #fff9e3;
+  --color-foreground: #081126;
+  --color-card: #fff8e7;
+  --color-muted: #f6eecf;
+  --color-muted-foreground: rgba(0, 0, 0, 0.6);
+  --color-primary: #081126;
+  --color-accent: #ea7a53;
+  --color-border: rgba(0, 0, 0, 0.1);
+  --color-success: #16a34a;
+  --color-destructive: #dc2626;
+  --color-subscription: #8fd1bd;
+  --color-mist: #717182;
+  --color-mist-100: #ECECF0;
+  --color-mist-200: #F3F3F5;
+
+  --spacing-0: 0px;
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-7: 28px;
+  --spacing-8: 32px;
+  --spacing-9: 36px;
+  --spacing-10: 40px;
+  --spacing-11: 44px;
+  --spacing-12: 48px;
+  --spacing-14: 56px;
+  --spacing-16: 64px;
+  --spacing-18: 72px;
+  --spacing-20: 80px;
+  --spacing-24: 96px;
+  --spacing-30: 120px;
+
+  --font-sans: sans-regular;
+  --font-sans-light: sans-light;
+  --font-sans-medium: sans-medium;
+  --font-sans-semibold: sans-semibold;
+  --font-sans-bold: sans-bold;
+  --font-sans-extrabold: sans-extrabold;
+}
+
+/* ─── Component Classes ───────────────────── */
+@layer components {
+  .text-h4 {
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: 0.07px;
+  }
+
+  .text-psm {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.31px;
+  }
+}

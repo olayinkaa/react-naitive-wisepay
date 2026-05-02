@@ -1,0 +1,12 @@
+{
+  "font": {
+    "family": {
+      "sans": { "value": "sans-regular" },
+      "sans-light": { "value": "sans-light" },
+      "sans-medium": { "value": "sans-medium" },
+      "sans-semibold": { "value": "sans-semibold" },
+      "sans-bold": { "value": "sans-bold" },
+      "sans-extrabold": { "value": "sans-extrabold" }
+    }
+  }
+}
