@@ -65,7 +65,7 @@ export default function SignIn() {
         />
       </View>
 
-      <Link href="/home" className="self-end">
+      <Link href="/reset" className="self-end">
         <Text className="text-blue-600 font-medium">Forgot Password?</Text>
       </Link>
     </View>
