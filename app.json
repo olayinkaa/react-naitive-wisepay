@@ -6,7 +6,7 @@
     "orientation": "portrait",
     "icon": "./assets/images/png/icon.png",
     "scheme": "wisepay",
-    "userInterfaceStyle": "automatic",
+    "userInterfaceStyle": "dark",
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,

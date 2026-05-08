@@ -1,18 +1,12 @@
+import SafeAreaView from "@/components/ui/safe-area-view";
 import { MAX_CARD_WIDTH, SCREEN_HORIZONTAL_PADDING } from "@/constants/layout";
 import { colors } from "@/constants/theme";
-import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
-import { BlurView } from "expo-blur";
-import { Tabs } from "expo-router";
+import { Ionicons } from "@expo/vector-icons";
+import { Link, Tabs } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import {
-  Pressable,
-  StyleSheet,
-  Text,
-  useWindowDimensions,
-  View,
-} from "react-native";
-import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
+import { Pressable, Text, useWindowDimensions, View } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const GlobalHeader = () => {
   const { width } = useWindowDimensions();
@@ -27,26 +21,24 @@ const GlobalHeader = () => {
     <>
       <StatusBar style="dark" />
       <SafeAreaView
-        style={{
-          backgroundColor: "#fff",
-
-          alignItems: "center", // Center the constrained container
-        }}
+        className="bg-white items-center border-b border-mist-100 pb-3"
+        edges={["top"]}
       >
-        {/* 2. Constrained container for the content */}
         <View
-          className="flex-row justify-between items-center"
+          className="flex-row justify-between items-center "
           style={{ width: containerWidth }}
         >
           {/* Logo Section */}
-          <View className="flex-row items-center gap-2">
-            <View className="w-10 h-10 bg-black rounded-xl items-center justify-center">
-              <Text className="text-white text-xl font-bold">W</Text>
+          <Link href={"/(auth)/sign-in"} asChild>
+            <View className="flex-row items-center gap-2">
+              <View className="w-10 h-10 bg-black rounded-xl items-center justify-center">
+                <Text className="text-white text-xl font-bold">W</Text>
+              </View>
+              <Text className="text-xl font-bold tracking-tight text-black">
+                WisePay
+              </Text>
             </View>
-            <Text className="text-xl font-bold tracking-tight text-black">
-              WisePay
-            </Text>
-          </View>
+          </Link>
 
           {/* Icons Section */}
           <View className="flex-row items-center gap-4">
@@ -62,6 +54,7 @@ const GlobalHeader = () => {
             </Pressable>
           </View>
         </View>
+        {/* 2. Constrained container for the content */}
       </SafeAreaView>
     </>
   );
@@ -75,53 +68,73 @@ export default function TabLayout() {
         header: () => <GlobalHeader />,
         tabBarActiveTintColor: colors.primary,
         tabBarStyle: {
-          position: "absolute",
-          backgroundColor: "transparent",
+          // position: "absolute",
+          // backgroundColor: "white",
           height: 32 + inset.bottom,
           paddingTop: 0,
-          borderWidth: 1,
+          borderTopWidth: 0.5,
           elevation: 0,
-          marginHorizontal: 20,
           marginBottom: inset.bottom,
-          borderRadius: 24,
-          overflow: "hidden",
+          // marginHorizontal: 15,
+          // borderRadius: 24,
+          // overflow: "hidden",
         },
         tabBarLabelStyle: {
           fontSize: 12,
           fontWeight: "600",
         },
+        tabBarLabelPosition: "below-icon", // default is 'beside-icon'
         tabBarBackground: () => (
-          <BlurView
-            tint="light"
-            intensity={100}
-            style={StyleSheet.absoluteFill}
+          <View
+            style={{
+              flex: 1,
+              backgroundColor: "white", // Your desired bottom safe area color
+              marginBottom: -100, // Extends the color way past the bottom of the screen
+            }}
           />
         ),
+        // tabBarBackground: () => (
+        //   <BlurView
+        //     tint="light"
+        //     intensity={50}
+        //     style={StyleSheet.absoluteFill}
+        //   />
+        // ),
       }}
     >
       <Tabs.Screen
         name="home"
         options={{
           title: "Home",
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="home-sharp" size={size} color={color} />
+          tabBarIcon: ({ color, size, focused }) => (
+            <Ionicons
+              name={focused ? "home" : "home-outline"}
+              size={size}
+              color={color}
+            />
           ),
         }}
       />
       <Tabs.Screen
         name="balances"
         options={{
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="wallet-outline" size={size} color={color} />
+          tabBarLabel: "Balance",
+          tabBarIcon: ({ color, size, focused }) => (
+            <Ionicons
+              name={focused ? "wallet" : "wallet-outline"}
+              size={size}
+              color={color}
+            />
           ),
         }}
       />
       <Tabs.Screen
         name="payments"
         options={{
-          tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons
-              name="cash-multiple"
+          tabBarLabel: "Payment",
+          tabBarIcon: ({ color, size, focused }) => (
+            <Ionicons
+              name={focused ? "cash" : "cash-outline"}
               size={size}
               color={color}
             />
@@ -133,8 +146,12 @@ export default function TabLayout() {
         options={{
           tabBarLabel: "Cards",
           headerShown: false,
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="card-outline" size={size} color={color} />
+          tabBarIcon: ({ color, size, focused }) => (
+            <Ionicons
+              name={focused ? "card" : "card-outline"}
+              size={size}
+              color={color}
+            />
           ),
         }}
       />
@@ -142,8 +159,12 @@ export default function TabLayout() {
         name="profile"
         options={{
           tabBarLabel: "Profile",
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="person-outline" size={size} color={color} />
+          tabBarIcon: ({ color, size, focused }) => (
+            <Ionicons
+              name={focused ? "person" : "person-outline"}
+              size={size}
+              color={color}
+            />
           ),
         }}
       />

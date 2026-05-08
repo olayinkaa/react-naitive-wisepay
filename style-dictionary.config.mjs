@@ -127,9 +127,9 @@ export const linearGradient = {
   gradients: ${JSON.stringify(gradients, null, 2)}
 } as const;
 
-export type ColorKeys = keyof typeof colors;
-export type SpacingKeys = keyof typeof spacing;
-export type FontKeys = keyof typeof fonts;
+// export type ColorKeys = keyof typeof colors;
+// export type SpacingKeys = keyof typeof spacing;
+// export type FontKeys = keyof typeof fonts;
 `;
   },
 });
@@ -162,10 +162,10 @@ export default {
      */
     ts: {
       transformGroup: "js",
-      buildPath: "constants/",
+      buildPath: "tokens/",
       files: [
         {
-          destination: "theme.ts",
+          destination: "constants.ts",
           format: "ts/constants",
         },
       ],

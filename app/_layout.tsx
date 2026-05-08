@@ -28,9 +28,9 @@ function RootLayoutContent() {
   if (!fontsLoaded) return null;
 
   return (
-    <Stack screenOptions={{ headerShown: false }}>
+    <Stack screenOptions={{ headerShown: false }} initialRouteName="(auth)">
       {/* Ensure (auth) is the primary screen shown if index redirects there */}
-      <Stack.Screen name="index" />
+      {/* <Stack.Screen name="index" /> */}
       <Stack.Screen name="(auth)" options={{ headerShown: false }} />
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       <Stack.Screen
