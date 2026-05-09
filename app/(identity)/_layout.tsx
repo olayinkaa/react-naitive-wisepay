@@ -8,7 +8,7 @@ export default function IdentityLayout() {
         headerShown: false,
       }}
     >
-      <Stack.Screen name="index" />
+      <Stack.Screen name="(identity)/index" />
     </Stack>
   );
 }

@@ -20,3 +20,36 @@ export const QuickActions: QuickAction[] = [
     color: "#F97316",
   },
 ];
+
+export const QuickActionItems = [
+  {
+    id: 1,
+    title: "Send Money",
+    description: "Transfer money to friends and family",
+    icon: "send-sharp",
+  },
+  {
+    id: 2,
+    title: "Request Money",
+    description: "Create a payment request",
+    icon: "qr-code-outline",
+  },
+  {
+    id: 3,
+    title: "Add Money",
+    description: "Top up your account balance",
+    icon: "download-outline",
+  },
+  {
+    id: 4,
+    title: "Convert Currency",
+    description: "Exchange between currencies",
+    icon: "swap-horizontal-outline",
+  },
+  {
+    id: 5,
+    title: "Order Card",
+    description: "Get a physical or virtual card",
+    icon: "card-outline",
+  },
+];

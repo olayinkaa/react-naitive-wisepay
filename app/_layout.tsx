@@ -3,10 +3,8 @@ import { SplashScreen, Stack } from "expo-router";
 import { useEffect } from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { KeyboardProvider } from "react-native-keyboard-controller";
-import { SafeAreaProvider } from "react-native-safe-area-context";
 import { Toaster } from "react-native-sonner";
 import "./global.css";
-import { Text, View } from "react-native";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -30,9 +28,10 @@ function RootLayoutContent() {
   if (!fontsLoaded) return null;
 
   return (
-    <Stack screenOptions={{ headerShown: false }}
-    //  initialRouteName="(auth)"
-     >
+    <Stack
+      screenOptions={{ headerShown: false }}
+      //  initialRouteName="(auth)"
+    >
       {/* Ensure (auth) is the primary screen shown if index redirects there */}
       <Stack.Screen name="index" />
       <Stack.Screen name="(auth)" options={{ headerShown: false }} />
@@ -50,9 +49,11 @@ function RootLayoutContent() {
           presentation: "formSheet", // Native iOS FormSheet style
           headerShown: false,
           title: "New Action",
-          sheetAllowedDetents: [0.6, 1], // Optional: allows partial height
+          sheetAllowedDetents: [0.7, 0.9], // Optional: allows partial height
           sheetGrabberVisible: true,
-          sheetCornerRadius: 20
+          sheetCornerRadius: 20,
+          sheetElevation: 0,
+        //  sheetLargestUndimmedDetentIndex:"last"
         }}
       />
     </Stack>
@@ -63,10 +64,10 @@ export default function RootLayout() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       {/* <SafeAreaProvider> */}
-        <KeyboardProvider>
-          <RootLayoutContent />
-          <Toaster position="top-center" richColors closeButton />
-        </KeyboardProvider>
+      <KeyboardProvider>
+        <RootLayoutContent />
+        <Toaster position="top-center" richColors closeButton />
+      </KeyboardProvider>
       {/* </SafeAreaProvider> */}
     </GestureHandlerRootView>
   );

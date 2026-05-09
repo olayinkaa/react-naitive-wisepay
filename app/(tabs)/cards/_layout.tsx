@@ -1,11 +1,18 @@
+import { GlobalHeader } from "@/components/shared/global-header";
 import { Stack } from "expo-router";
 import React from "react";
 
 export default function CardLayout() {
   return (
     <Stack>
-      <Stack.Screen name="index" options={{ title: "Cards" }} />
-      <Stack.Screen name="send-money" options={{ title: "Send Money" }} />
+      <Stack.Screen
+        name="index"
+        options={{ title: "Cards", header: () => <GlobalHeader /> }}
+      />
+      <Stack.Screen
+        name="cards/[card-detail]"
+        options={{ title: "Send Money" }}
+      />
     </Stack>
   );
 }
