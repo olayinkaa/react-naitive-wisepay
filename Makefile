@@ -10,3 +10,5 @@ kill:
 	adb kill-server && adb start-server
 token:
 	npm run tokens
+list-route:
+	npx expo-router-sitemap  

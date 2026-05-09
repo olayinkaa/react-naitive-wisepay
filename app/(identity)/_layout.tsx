@@ -7,8 +7,9 @@ export default function IdentityLayout() {
       screenOptions={{
         headerShown: false,
       }}
+      initialRouteName="(identity)/verify-identity"
     >
-      <Stack.Screen name="(identity)/index" />
+      <Stack.Screen name="(identity)/verify-identity" />
     </Stack>
   );
 }
