@@ -44,6 +44,7 @@ export default function TextField<T extends FieldValues>({
                   : text;
               onChange(cleaned);
             }}
+            // onChangeText={onChange}
             onBlur={onBlur}
             placeholder={placeholder}
             placeholderTextColor={colors.mist}

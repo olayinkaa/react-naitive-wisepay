@@ -1,10 +1,9 @@
-import { BalanceItem, SectionHeader } from "@/components/features/home";
+import { QuickActionItem, SectionHeader } from "@/components/features/home";
+import { ActionTile } from "@/components/shared/action-tile";
+import LinearGradient from "@/components/ui/linear-gradient";
 import { colors, linearGradient } from "@/constants/theme";
 import useScreen from "@/hooks/use-screen";
-import { QuickActions } from "@/lib/data";
 import { Ionicons } from "@expo/vector-icons";
-import { LinearGradient as RNLinearGradient } from "expo-linear-gradient";
-import { styled } from "nativewind";
 import {
   Pressable,
   ScrollView,
@@ -12,8 +11,6 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-
-const LinearGradient = styled(RNLinearGradient);
 
 export default function Home() {
   const { containerWidth } = useScreen();
@@ -26,11 +23,12 @@ export default function Home() {
         contentContainerStyle={{
           width: containerWidth,
           gap: 10,
+          paddingVertical: 20,
         }}
         showsVerticalScrollIndicator={false}
       >
         {/* Verification Banner */}
-        <View className="border border-warning-300 bg-warning-background p-4 mt-5 flex-row gap-6 rounded-[14px]">
+        <View className="border border-warning-300 bg-warning-background p-4 flex-row gap-6 rounded-[14px]">
           <View className="flex-1 flex-row items-center gap-2 ">
             <Ionicons
               name="warning-outline"
@@ -53,7 +51,7 @@ export default function Home() {
         {/* Welcome */}
         <View className="flex-row items-center mt-4">
           <View className="flex-1">
-            <Text className="text-[20px] font-semibold">
+            <Text className="text-20 font-semibold">
               Good morning, Olayinka
             </Text>
             <Text className="text-base text-[#A1A1A1]">
@@ -73,7 +71,7 @@ export default function Home() {
           colors={linearGradient.gradients.dark}
           className="p-6 rounded-2xl gap-2 mt-3"
         >
-          <View className="flex-row items-center justify-between gap-4 mb-4">
+          <View className="flex-row items-center justify-between gap-0">
             <View>
               <Text className="text-14 text-white">Total Balance</Text>
               <Text className="text-30 font-bold text-white">$12,345.67</Text>
@@ -100,40 +98,87 @@ export default function Home() {
         <View className="mt-5">
           <SectionHeader title="Your Balances" />
           <View className="gap-4">
-            <BalanceItem flag="🇺🇸" currency="USD" amount="1250.43" />
-            <BalanceItem flag="🇪🇺" currency="EUR" amount="890.22" />
-            <BalanceItem flag="🇬🇧" currency="GBP" amount="456.78" />
+            <ActionTile
+              leading="🇺🇸"
+              title="USD"
+              description="Available"
+              trailing="$1250.43"
+            />
+            <ActionTile
+              leading="🇪🇺"
+              title="EUR"
+              description="Available"
+              trailing="$890.22"
+            />
+            <ActionTile
+              leading="🇪🇬"
+              title="GBP"
+              description="Available"
+              trailing="$456.78"
+            />
           </View>
         </View>
         {/* Quick action */}
-        <View className="mb-10 mt-5">
+        <View className="mt-5">
           <Text className="text-16 font-semibold mb-2">Quick Actions</Text>
-          <View className="flex-row flex-wrap justify-between gap-y-4">
-            {QuickActions.map((item) => {
-              return (
-                <TouchableOpacity
-                  key={item.id}
-                  activeOpacity={0.7}
-                  className="w-[48.5%] border border-border items-center rounded-2xl p-5 gap-2 bg-white"
-                >
-                  <Ionicons name={item.icon} size={30} color={item.color} />
-                  <Text className="text-16 font-semibold">{item.label}</Text>
-                </TouchableOpacity>
-              );
-            })}
+          <QuickActionItem />
+        </View>
+        {/* Market Rates  */}
+        <View className="mt-3">
+          <SectionHeader title="Market Rates" />
+          <View className="gap-4">
+            <ActionTile
+              leading={
+                <Ionicons
+                  name="trending-down"
+                  size={20}
+                  style={{
+                    padding: 5,
+                    borderRadius: 999,
+                    backgroundColor: "#FFE2E2",
+                    color: "#FF020E",
+                  }}
+                />
+              }
+              title="USD/EUR"
+              description="-0.0023"
+              trailing="0.8542"
+            />
+            <ActionTile
+              leading={
+                <Ionicons
+                  name="trending-up"
+                  size={20}
+                  style={{
+                    padding: 5,
+                    borderRadius: 999,
+                    backgroundColor: "#DCFCE7",
+                    color: "#00C046",
+                  }}
+                />
+              }
+              title="GBP/USD"
+              description="+0.0087"
+              trailing="1.2456"
+            />
+            <ActionTile
+              leading={
+                <Ionicons
+                  name="trending-up"
+                  size={20}
+                  style={{
+                    padding: 5,
+                    borderRadius: 999,
+                    backgroundColor: "#DCFCE7",
+                    color: "#00C046",
+                  }}
+                />
+              }
+              title="EUR/GBP"
+              description="+0.0012"
+              trailing="0.8734"
+            />
           </View>
-          <TouchableOpacity
-            activeOpacity={0.7}
-            className="flex-row border border-border items-center rounded-2xl h-[85.5px] px-5 gap-2 bg-white mt-4"
-          >
-            <Ionicons name={"card-outline"} size={30} color="#B760FF" />
-            <View>
-              <Text className="text-16 font-semibold">Order Card</Text>
-              <Text className="text-14 text-[#A1A1A1] font-semibold">
-                Get a physical or virtual card
-              </Text>
-            </View>
-          </TouchableOpacity>
         </View>
       </ScrollView>
     </LinearGradient>

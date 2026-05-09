@@ -1,8 +1,9 @@
+import QuickActionFab from "@/components/shared/quick-action-fab";
 import SafeAreaView from "@/components/ui/safe-area-view";
 import { MAX_CARD_WIDTH, SCREEN_HORIZONTAL_PADDING } from "@/constants/layout";
 import { colors } from "@/constants/theme";
 import { Ionicons } from "@expo/vector-icons";
-import { Link, Tabs } from "expo-router";
+import { Link, Tabs, useSegments } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { Pressable, Text, useWindowDimensions, View } from "react-native";
@@ -62,112 +63,119 @@ const GlobalHeader = () => {
 
 export default function TabLayout() {
   const inset = useSafeAreaInsets();
+  const segments = useSegments();
+  const isRootTab = segments.length <= 2;
   return (
-    <Tabs
-      screenOptions={{
-        header: () => <GlobalHeader />,
-        tabBarActiveTintColor: colors.primary,
-        tabBarStyle: {
-          // position: "absolute",
-          // backgroundColor: "white",
-          height: 32 + inset.bottom,
-          paddingTop: 0,
-          borderTopWidth: 0.5,
-          elevation: 0,
-          marginBottom: inset.bottom,
-          // marginHorizontal: 15,
-          // borderRadius: 24,
-          // overflow: "hidden",
-        },
-        tabBarLabelStyle: {
-          fontSize: 12,
-          fontWeight: "600",
-        },
-        tabBarLabelPosition: "below-icon", // default is 'beside-icon'
-        tabBarBackground: () => (
-          <View
-            style={{
-              flex: 1,
-              backgroundColor: "white", // Your desired bottom safe area color
-              marginBottom: -100, // Extends the color way past the bottom of the screen
-            }}
-          />
-        ),
-        // tabBarBackground: () => (
-        //   <BlurView
-        //     tint="light"
-        //     intensity={50}
-        //     style={StyleSheet.absoluteFill}
-        //   />
-        // ),
-      }}
-    >
-      <Tabs.Screen
-        name="home"
-        options={{
-          title: "Home",
-          tabBarIcon: ({ color, size, focused }) => (
-            <Ionicons
-              name={focused ? "home" : "home-outline"}
-              size={size}
-              color={color}
+    <>
+      <Tabs
+        screenOptions={{
+          header: () => <GlobalHeader />,
+          tabBarActiveTintColor: colors.primary,
+          tabBarStyle: {
+            // position: "absolute",
+            // backgroundColor: "white",
+            height: 32 + inset.bottom,
+            paddingTop: 0,
+            borderTopWidth: 0.5,
+            elevation: 0,
+            marginBottom: inset.bottom,
+            // marginHorizontal: 15,
+            // borderRadius: 24,
+            // overflow: "hidden",
+          },
+          tabBarLabelStyle: {
+            fontSize: 12,
+            fontWeight: "600",
+          },
+          tabBarLabelPosition: "below-icon", // default is 'beside-icon'
+          tabBarBackground: () => (
+            <View
+              style={{
+                flex: 1,
+                backgroundColor: "white", // Your desired bottom safe area color
+                marginBottom: -100, // Extends the color way past the bottom of the screen
+              }}
             />
           ),
+          // tabBarBackground: () => (
+          //   <BlurView
+          //     tint="light"
+          //     intensity={50}
+          //     style={StyleSheet.absoluteFill}
+          //   />
+          // ),
         }}
-      />
-      <Tabs.Screen
-        name="balances"
-        options={{
-          tabBarLabel: "Balance",
-          tabBarIcon: ({ color, size, focused }) => (
-            <Ionicons
-              name={focused ? "wallet" : "wallet-outline"}
-              size={size}
-              color={color}
-            />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="payments"
-        options={{
-          tabBarLabel: "Payment",
-          tabBarIcon: ({ color, size, focused }) => (
-            <Ionicons
-              name={focused ? "cash" : "cash-outline"}
-              size={size}
-              color={color}
-            />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="cards"
-        options={{
-          tabBarLabel: "Cards",
-          headerShown: false,
-          tabBarIcon: ({ color, size, focused }) => (
-            <Ionicons
-              name={focused ? "card" : "card-outline"}
-              size={size}
-              color={color}
-            />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="profile"
-        options={{
-          tabBarLabel: "Profile",
-          tabBarIcon: ({ color, size, focused }) => (
-            <Ionicons
-              name={focused ? "person" : "person-outline"}
-              size={size}
-              color={color}
-            />
-          ),
-        }}
-      />
-    </Tabs>
+      >
+        <Tabs.Screen
+          name="home"
+          options={{
+            title: "Home",
+            tabBarIcon: ({ color, size, focused }) => (
+              <Ionicons
+                name={focused ? "home" : "home-outline"}
+                size={size}
+                color={color}
+              />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name="balances"
+          options={{
+            tabBarLabel: "Balance",
+            tabBarIcon: ({ color, size, focused }) => (
+              <Ionicons
+                name={focused ? "wallet" : "wallet-outline"}
+                size={size}
+                color={color}
+              />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name="payments"
+          options={{
+            tabBarLabel: "Payment",
+            tabBarIcon: ({ color, size, focused }) => (
+              <Ionicons
+                name={focused ? "cash" : "cash-outline"}
+                size={size}
+                color={color}
+              />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name="cards"
+          options={{
+            tabBarLabel: "Cards",
+            headerShown: false,
+            tabBarIcon: ({ color, size, focused }) => (
+              <Ionicons
+                name={focused ? "card" : "card-outline"}
+                size={size}
+                color={color}
+              />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name="profile"
+          options={{
+            tabBarLabel: "Profile",
+            tabBarIcon: ({ color, size, focused }) => (
+              <Ionicons
+                name={focused ? "person" : "person-outline"}
+                size={size}
+                color={color}
+              />
+            ),
+          }}
+        />
+      </Tabs>
+      {isRootTab && (
+        <QuickActionFab onPress={() => console.log("FAB pressed")} />
+      )}
+    </>
   );
 }
