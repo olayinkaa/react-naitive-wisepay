@@ -1,6 +1,6 @@
-import LinearGradient from "@/components/ui/linear-gradient";
 import { linearGradient } from "@/constants/theme";
 import useScreen from "@/hooks/use-screen";
+import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 import { Text, View } from "react-native";
 
@@ -9,7 +9,10 @@ export default function Balances() {
   return (
     <LinearGradient
       colors={linearGradient.gradients.background}
-      className="flex-1 items-center"
+      style={{
+        flex: 1,
+        alignItems: "center"
+      }}
     >
       <View style={{ width: containerWidth }}>
         {/* Header */}

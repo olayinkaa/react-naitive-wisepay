@@ -1,19 +1,21 @@
-// import { Redirect } from "expo-router";
-
-// export default function Index() {
-//   return <Redirect href="/(auth)/sign-in" />;
-// }
-
-import { useRouter } from "expo-router";
+import { useRouter, useRootNavigationState } from "expo-router";
 import { useEffect } from "react";
+import { Text, View } from "react-native";
 
 export default function Index() {
   const router = useRouter();
+  const navigationState = useRootNavigationState();
 
   useEffect(() => {
-    // This runs after the mount is complete
-    router.replace("/(auth)/sign-in");
-  }, [router]);
+    // Check if the navigation state exists and is "ready"
+    if (navigationState?.key) {
+      router.replace("/(auth)/sign-in");
+    }
+  }, [navigationState?.key, router]);
 
-  return null;
+  return (
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <Text>Loading WisePay...</Text>
+    </View>
+  );
 }

@@ -1,17 +1,24 @@
 import QuickActionFab from "@/components/shared/quick-action-fab";
-import SafeAreaView from "@/components/ui/safe-area-view";
 import { MAX_CARD_WIDTH, SCREEN_HORIZONTAL_PADDING } from "@/constants/layout";
 import { colors } from "@/constants/theme";
 import { Ionicons } from "@expo/vector-icons";
-import { Link, Tabs, useSegments } from "expo-router";
+import { Link, Tabs, useRouter, useSegments } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { Pressable, Text, useWindowDimensions, View } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import {
+  Pressable,
+  Text,
+  TouchableOpacity,
+  useWindowDimensions,
+  View,
+} from "react-native";
+import {
+  SafeAreaView,
+  useSafeAreaInsets,
+} from "react-native-safe-area-context";
 
 const GlobalHeader = () => {
   const { width } = useWindowDimensions();
-
   // Calculate width for centered content
   const containerWidth = Math.min(
     width - SCREEN_HORIZONTAL_PADDING, // Multiply by 2 for both sides
@@ -22,8 +29,13 @@ const GlobalHeader = () => {
     <>
       <StatusBar style="dark" />
       <SafeAreaView
-        className="bg-white items-center border-b border-mist-100 pb-3"
-        edges={["top"]}
+        style={{
+          backgroundColor: "white",
+          alignItems: "center",
+          borderBottomWidth: 1,
+          borderColor: colors["mist-200"],
+          paddingBottom: 0,
+        }}
       >
         <View
           className="flex-row justify-between items-center "
@@ -31,14 +43,17 @@ const GlobalHeader = () => {
         >
           {/* Logo Section */}
           <Link href={"/(auth)/sign-in"} asChild>
-            <View className="flex-row items-center gap-2">
+            <TouchableOpacity
+              activeOpacity={0.7}
+              className="flex-row items-center gap-2"
+            >
               <View className="w-10 h-10 bg-black rounded-xl items-center justify-center">
                 <Text className="text-white text-xl font-bold">W</Text>
               </View>
               <Text className="text-xl font-bold tracking-tight text-black">
                 WisePay
               </Text>
-            </View>
+            </TouchableOpacity>
           </Link>
 
           {/* Icons Section */}
@@ -64,6 +79,7 @@ const GlobalHeader = () => {
 export default function TabLayout() {
   const inset = useSafeAreaInsets();
   const segments = useSegments();
+  const router = useRouter();
   const isRootTab = segments.length <= 2;
   return (
     <>
@@ -174,7 +190,7 @@ export default function TabLayout() {
         />
       </Tabs>
       {isRootTab && (
-        <QuickActionFab onPress={() => console.log("FAB pressed")} />
+        <QuickActionFab onPress={() => router.push("/quick-action")} />
       )}
     </>
   );

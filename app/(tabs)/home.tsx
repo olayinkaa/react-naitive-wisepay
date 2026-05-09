@@ -1,9 +1,9 @@
 import { QuickActionItem, SectionHeader } from "@/components/features/home";
 import { ActionTile } from "@/components/shared/action-tile";
-import LinearGradient from "@/components/ui/linear-gradient";
 import { colors, linearGradient } from "@/constants/theme";
 import useScreen from "@/hooks/use-screen";
 import { Ionicons } from "@expo/vector-icons";
+import { LinearGradient } from "expo-linear-gradient";
 import {
   Pressable,
   ScrollView,
@@ -17,34 +17,33 @@ export default function Home() {
   return (
     <LinearGradient
       colors={linearGradient.gradients.background}
-      className="flex-1 items-center"
+      style={{ flex: 1 }}
     >
       <ScrollView
         contentContainerStyle={{
           width: containerWidth,
           gap: 10,
           paddingVertical: 20,
+          alignSelf: "center",
         }}
+        // contentInsetAdjustmentBehavior="automatic"
         showsVerticalScrollIndicator={false}
       >
-        {/* Verification Banner */}
-        <View className="border border-warning-300 bg-warning-background p-4 flex-row gap-6 rounded-[14px]">
-          <View className="flex-1 flex-row items-center gap-2 ">
-            <Ionicons
-              name="warning-outline"
-              size={24}
-              style={{ color: colors["warning-400"] }}
-            />
-            <View className="gap-0">
-              <Text className="text-warning-300 font-medium text-base">
-                Verification in progress
-              </Text>
-              <Text className="max-w-55 text-warning-200">
-                Complete your verification to unlock all features
-              </Text>
-            </View>
+        <View className="flex-row border border-warning-300 bg-warning-background p-4 rounded-[14px] gap-2">
+          <Ionicons
+            name="warning-outline"
+            size={24}
+            style={{ color: colors["warning-400"], alignSelf: "center" }}
+          />
+          <View className="flex-1">
+            <Text className="text-warning-300 font-medium text-base">
+              Verification in progress
+            </Text>
+            <Text className="max-w-48 text-warning-200">
+              Complete your verification to unlock all features
+            </Text>
           </View>
-          <TouchableOpacity className="border border-mist-400 p-2 rounded-lg bg-[#D9D9D94D] self-center">
+          <TouchableOpacity className="border border-mist-200 p-2 rounded-lg bg-[#D9D9D94D] self-center ">
             <Text className="font-medium">Continue</Text>
           </TouchableOpacity>
         </View>
@@ -69,9 +68,14 @@ export default function Home() {
         {/* Balance Summary */}
         <LinearGradient
           colors={linearGradient.gradients.dark}
-          className="p-6 rounded-2xl gap-2 mt-3"
+          style={{
+            padding: 20,
+            borderRadius: 20,
+            gap: 10,
+            marginVertical: 5,
+          }}
         >
-          <View className="flex-row items-center justify-between gap-0">
+          <View className="flex-row items-center justify-between gap-3">
             <View>
               <Text className="text-14 text-white">Total Balance</Text>
               <Text className="text-30 font-bold text-white">$12,345.67</Text>

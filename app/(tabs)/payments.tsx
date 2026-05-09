@@ -1,7 +1,7 @@
-import LinearGradient from "@/components/ui/linear-gradient";
 import { linearGradient } from "@/constants/theme";
 import useScreen from "@/hooks/use-screen";
 import { Ionicons } from "@expo/vector-icons";
+import { LinearGradient } from "expo-linear-gradient";
 import React, { useState } from "react";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import Animated from "react-native-reanimated";
@@ -16,7 +16,10 @@ export default function Payments() {
   return (
     <LinearGradient
       colors={linearGradient.gradients.background}
-      className="flex-1 items-center"
+       style={{
+        flex: 1,
+        alignItems: "center"
+      }}
     >
       <View style={{ width: containerWidth }}>
         {/* Header */}

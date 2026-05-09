@@ -1,10 +1,12 @@
-import "@/global.css";
 import { useFonts } from "expo-font";
 import { SplashScreen, Stack } from "expo-router";
 import { useEffect } from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { KeyboardProvider } from "react-native-keyboard-controller";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 import { Toaster } from "react-native-sonner";
+import "./global.css";
+import { Text, View } from "react-native";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -28,9 +30,11 @@ function RootLayoutContent() {
   if (!fontsLoaded) return null;
 
   return (
-    <Stack screenOptions={{ headerShown: false }} initialRouteName="(auth)">
+    <Stack screenOptions={{ headerShown: false }}
+    //  initialRouteName="(auth)"
+     >
       {/* Ensure (auth) is the primary screen shown if index redirects there */}
-      {/* <Stack.Screen name="index" /> */}
+      <Stack.Screen name="index" />
       <Stack.Screen name="(auth)" options={{ headerShown: false }} />
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       <Stack.Screen
@@ -40,6 +44,17 @@ function RootLayoutContent() {
           // headerShown: false,
         }}
       />
+      <Stack.Screen
+        name="quick-action"
+        options={{
+          presentation: "formSheet", // Native iOS FormSheet style
+          headerShown: true,
+          title: "New Action",
+          sheetAllowedDetents: [0.5, 0.9], // Optional: allows partial height
+          sheetGrabberVisible: true,
+          sheetCornerRadius: 20
+        }}
+      />
     </Stack>
   );
 }
@@ -47,10 +62,12 @@ function RootLayoutContent() {
 export default function RootLayout() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <KeyboardProvider>
-        <RootLayoutContent />
-        <Toaster position="top-center" richColors closeButton />
-      </KeyboardProvider>
+      {/* <SafeAreaProvider> */}
+        <KeyboardProvider>
+          <RootLayoutContent />
+          <Toaster position="top-center" richColors closeButton />
+        </KeyboardProvider>
+      {/* </SafeAreaProvider> */}
     </GestureHandlerRootView>
   );
 }

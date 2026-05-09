@@ -13,7 +13,9 @@ export default function Wrapper({ children }: WrapperProps) {
   return (
     <LinearGradient
       colors={linearGradient.gradients.background}
-      className="flex-1"
+      style={{
+        flex: 1,
+      }}
     >
       <View
         className="flex-1"

@@ -12,7 +12,7 @@ export default function QuickActionFab({ onPress }: { onPress: () => void }) {
       style={{
         position: "absolute",
         right: 10,
-        bottom: 65 + inset.bottom,
+        bottom: 80 + inset.bottom,
         backgroundColor: "black",
         width: 56,
         height: 56,
