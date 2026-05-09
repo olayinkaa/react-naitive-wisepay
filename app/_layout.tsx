@@ -48,9 +48,9 @@ function RootLayoutContent() {
         name="quick-action"
         options={{
           presentation: "formSheet", // Native iOS FormSheet style
-          headerShown: true,
+          headerShown: false,
           title: "New Action",
-          sheetAllowedDetents: [0.5, 0.9], // Optional: allows partial height
+          sheetAllowedDetents: [0.6, 1], // Optional: allows partial height
           sheetGrabberVisible: true,
           sheetCornerRadius: 20
         }}

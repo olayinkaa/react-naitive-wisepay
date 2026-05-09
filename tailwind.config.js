@@ -36,6 +36,7 @@ module.exports = {
         12: ["12px", "16px"],
         14: ["14px", "20px"],
         16: ["16px", { lineHeight: "24px", letterSpacing: "-0.31px" }],
+        18: ["18px", { lineHeight: "28px", letterSpacing: "-0.44px" }],
         20: ["20px", "28px"],
         30: ["30px", "36px"],
       },

@@ -19,7 +19,7 @@ export const ActionTile = ({
   leading: string | React.ReactNode;
   title: string | React.ReactNode;
   description: string | React.ReactNode;
-  trailing: string | React.ReactNode;
+  trailing?: string | React.ReactNode;
 }) => (
   <View className="flex-row justify-between items-center  bg-gray-50 p-4 rounded-2xl border border-border">
     <View className="flex-row items-center gap-3">
