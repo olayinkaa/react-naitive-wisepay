@@ -6,6 +6,7 @@ import { Link } from "expo-router";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Text, View } from "react-native";
+import Animated, { FadeIn } from "react-native-reanimated";
 // import { toast } from "react-native-sonner";
 
 export default function SignIn() {
@@ -32,7 +33,7 @@ export default function SignIn() {
   };
 
   return (
-    <View>
+    <Animated.View entering={FadeIn.duration(1000)}>
       {/* Form Fields would go here */}
       <View>
         <TextField
@@ -68,6 +69,6 @@ export default function SignIn() {
       <Link href="/(tabs)/home" className="self-end">
         <Text className="text-blue-600 font-medium">Forgot Password?</Text>
       </Link>
-    </View>
+    </Animated.View>
   );
 }
