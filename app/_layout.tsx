@@ -1,6 +1,10 @@
+import { NAV_THEME } from "@/lib/theme";
+import { ThemeProvider } from "@react-navigation/native";
+import { PortalHost } from "@rn-primitives/portal";
 import { useFonts } from "expo-font";
 import { SplashScreen, Stack } from "expo-router";
 import { useEffect } from "react";
+import { useColorScheme } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { KeyboardProvider } from "react-native-keyboard-controller";
 import { Toaster } from "react-native-sonner";
@@ -53,7 +57,7 @@ function RootLayoutContent() {
           sheetGrabberVisible: true,
           sheetCornerRadius: 20,
           sheetElevation: 0,
-        //  sheetLargestUndimmedDetentIndex:"last"
+          //  sheetLargestUndimmedDetentIndex:"last"
         }}
       />
     </Stack>
@@ -61,13 +65,18 @@ function RootLayoutContent() {
 }
 
 export default function RootLayout() {
+  const colorScheme = useColorScheme() === "dark" ? "dark" : "light";
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       {/* <SafeAreaProvider> */}
-      <KeyboardProvider>
-        <RootLayoutContent />
-        <Toaster position="top-center" richColors closeButton />
-      </KeyboardProvider>
+      <ThemeProvider value={NAV_THEME[colorScheme]}>
+        <KeyboardProvider>
+          <RootLayoutContent />
+          <Toaster position="top-center" richColors closeButton />
+          <PortalHost />
+        </KeyboardProvider>
+      </ThemeProvider>
+
       {/* </SafeAreaProvider> */}
     </GestureHandlerRootView>
   );
