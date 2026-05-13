@@ -16,9 +16,9 @@ export default function Payments() {
   return (
     <LinearGradient
       colors={linearGradient.gradients.background}
-       style={{
+      style={{
         flex: 1,
-        alignItems: "center"
+        alignItems: "center",
       }}
     >
       <View style={{ width: containerWidth }}>
@@ -36,11 +36,11 @@ export default function Payments() {
             <Ionicons name="send-sharp" size={25} color="white" />
             <Text className="text-14 font-medium text-white">Send</Text>
           </View>
-          <View className="flex-1 border border-border p-4 gap-4 rounded-lg items-center">
+          <View className="flex-1 bg-background border border-border p-4 gap-4 rounded-lg items-center">
             <Ionicons name="qr-code-outline" size={25} />
             <Text className="text-14 font-medium">Request</Text>
           </View>
-          <View className="flex-1 border border-border p-4 gap-4 rounded-lg items-center">
+          <View className="flex-1 bg-background border border-border p-4 gap-4 rounded-lg items-center">
             <Ionicons name="download-outline" size={25} />
             <Text className="text-14 font-medium">Receive</Text>
           </View>

@@ -53,7 +53,7 @@ export const fonts = {
 
 export const linearGradient = {
   gradients: {
-    background: ["#FFFFFF", "#ECEEF21A"],
+    background: ["#E0E0E0", "#EEEEEE"],
     surface: ["#1e293b", "#334155"],
     primary: ["#3b82f6", "#1d4ed8"],
     success: ["#10b981", "#059669"],

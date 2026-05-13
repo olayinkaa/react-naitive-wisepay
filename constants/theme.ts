@@ -18,7 +18,7 @@ export const linearGradient = {
   gradients: {
     ...tokens.linearGradient.gradients,
     // Add your manual gradient here
-    accent: ["#FBD8BC33", "#FBD8BC33"],
+    accent: ["#FFFFFF", "#FBD8BC33"],
     dark: ["#000000", "#322E2ECC"],
   },
 } as const;

@@ -26,6 +26,42 @@ export const THEME = {
     chart3: "hsl(197 37% 24%)",
     chart4: "hsl(43 74% 66%)",
     chart5: "hsl(27 87% 67%)",
+    //
+    lightDisabled: "#D8D8D8",
+    darkDisabled: "#232528",
+    disabledButton: "#80BA59",
+
+    // Greyscale (same scale)
+    grey100: "#F5F5F5",
+    grey200: "#EEEEEE",
+    grey300: "#E0E0EC",
+    grey400: "#BDBDBD",
+    grey500: "#9E9E9E",
+    grey600: "#757575",
+    grey700: "#616161",
+    grey800: "#424242",
+    grey900: "#212121",
+
+    // Gradients (same)
+    gradientTeal: "#2DB89A",
+    gradientPurple: "#9B3DEB",
+    gradientRed: "#E05C4B",
+    gradientBlue: "#4B6EF5",
+    gradientGreen: "#2ECC8A",
+    gradientBrown: "#A0724A",
+    gradientYellow: "#F5D233",
+    gradientOrange: "#F5A623",
+    gradients: {
+      background: ["#E0E0E0", "#EEEEEE"],
+      background2: ["#FFFFFF", "#EEEEEE"],
+      surface: ["#1e293b", "#334155"],
+      primary: ["#3b82f6", "#1d4ed8"],
+      success: ["#10b981", "#059669"],
+      warning: ["#f59e0b", "#d97706"],
+      danger: ["#ef4444", "#dc2626"],
+      muted: ["#374151", "#4b5563"],
+      empty: ["#374151", "#4b5563"],
+    },
   },
   dark: {
     background: "hsl(0 0% 3.9%)",
@@ -52,8 +88,44 @@ export const THEME = {
     chart3: "hsl(30 80% 55%)",
     chart4: "hsl(280 65% 60%)",
     chart5: "hsl(340 75% 55%)",
+    //
+    lightDisabled: "#D8D8D8",
+    darkDisabled: "#232528",
+    disabledButton: "#80BA59",
+
+    // Greyscale (same scale)
+    grey100: "#F5F5F5",
+    grey200: "#EEEEEE",
+    grey300: "#E0E0EC",
+    grey400: "#BDBDBD",
+    grey500: "#9E9E9E",
+    grey600: "#757575",
+    grey700: "#616161",
+    grey800: "#424242",
+    grey900: "#212121",
+
+    // Gradients (same)
+    gradientTeal: "#2DB89A",
+    gradientPurple: "#9B3DEB",
+    gradientRed: "#E05C4B",
+    gradientBlue: "#4B6EF5",
+    gradientGreen: "#2ECC8A",
+    gradientBrown: "#A0724A",
+    gradientYellow: "#F5D233",
+    gradientOrange: "#F5A623",
+    gradients: {
+      background: ["#E0E0E0", "#EEEEEE"],
+      background2: ["#FFFFFF", "#EEEEEE"],
+      surface: ["#1e293b", "#334155"],
+      primary: ["#3b82f6", "#1d4ed8"],
+      success: ["#10b981", "#059669"],
+      warning: ["#f59e0b", "#d97706"],
+      danger: ["#ef4444", "#dc2626"],
+      muted: ["#374151", "#4b5563"],
+      empty: ["#374151", "#4b5563"],
+    },
   },
-};
+} as const;
 
 export const NAV_THEME: Record<"light" | "dark", Theme> = {
   light: {

@@ -1,4 +1,4 @@
-import { linearGradient } from "@/constants/theme";
+import { useTheme } from "@/hooks/use-theme";
 import { LinearGradient } from "expo-linear-gradient";
 import React, { ReactNode } from "react";
 import { View } from "react-native";
@@ -10,9 +10,10 @@ interface WrapperProps {
 
 export default function Wrapper({ children }: WrapperProps) {
   const insets = useSafeAreaInsets();
+  const { theme } = useTheme();
   return (
     <LinearGradient
-      colors={linearGradient.gradients.background}
+      colors={theme.gradients.background}
       style={{
         flex: 1,
       }}

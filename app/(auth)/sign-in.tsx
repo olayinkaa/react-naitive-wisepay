@@ -1,5 +1,4 @@
 import { PasswordField, TextField } from "@/components/forms/rhf";
-import { CheckboxPreview } from "@/components/shared/demo-preview";
 import { Button } from "@/components/ui/button";
 import { SigninInputs, SigninSchema } from "@/validators/auth-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -11,7 +10,6 @@ import Animated, { FadeIn } from "react-native-reanimated";
 // import { toast } from "react-native-sonner";
 
 export default function SignIn() {
-  const [checked, setChecked] = useState(false);
   const [showPass, setShowPass] = useState(false);
   const { control, handleSubmit } = useForm<SigninInputs>({
     resolver: zodResolver(SigninSchema),
@@ -53,10 +51,6 @@ export default function SignIn() {
           placeholder="Enter your password"
         />
       </View>
-      <View>
-        <CheckboxPreview />
-      </View>
-
       <View className="my-4">
         <Button
           label="Sign In"

@@ -2,6 +2,7 @@ import { QuickActionItem, SectionHeader } from "@/components/features/home";
 import { ActionTile } from "@/components/shared/action-tile";
 import { colors, linearGradient } from "@/constants/theme";
 import useScreen from "@/hooks/use-screen";
+import { useTheme } from "@/hooks/use-theme";
 import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import {
@@ -14,11 +15,9 @@ import {
 
 export default function Home() {
   const { containerWidth } = useScreen();
+  const { theme } = useTheme();
   return (
-    <LinearGradient
-      colors={linearGradient.gradients.background}
-      style={{ flex: 1 }}
-    >
+    <LinearGradient colors={theme.gradients.background2} style={{ flex: 1 }}>
       <ScrollView
         contentContainerStyle={{
           width: containerWidth,
@@ -39,7 +38,7 @@ export default function Home() {
             <Text className="text-warning-300 font-medium text-base">
               Verification in progress
             </Text>
-            <Text className="max-w-48 text-warning-200">
+            <Text className=" text-warning-200">
               Complete your verification to unlock all features
             </Text>
           </View>

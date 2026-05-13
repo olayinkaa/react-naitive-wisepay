@@ -53,3 +53,35 @@ export const QuickActionItems = [
     icon: "card-outline",
   },
 ];
+
+export const BALANCE_DATA = [
+  {
+    id: "usd",
+    flag: "🇺🇸",
+    currencyCode: "USD",
+    label: "US Dollar",
+    balance: "$1,250.43",
+    heldAmount: "$50.00 held", // Specific custom metadata for USD layout matching
+  },
+  {
+    id: "eur",
+    flag: "🇪🇺",
+    currencyCode: "EUR",
+    label: "Available",
+    balance: "$1,250.43",
+  },
+  {
+    id: "gbp",
+    flag: "🇬🇧", // Fixed flag emoji typo from original snippet (changed from 🇪🇬 Egypt)
+    currencyCode: "GBP",
+    label: "Available",
+    balance: "$456.78",
+  },
+  {
+    id: "ngn",
+    flag: "🇳🇬", // Fixed flag emoji/code typo (changed from 🇪🇬 Egypt and 'NIG' to standard 'NGN')
+    currencyCode: "NGN",
+    label: "Available",
+    balance: "$456.78",
+  },
+];

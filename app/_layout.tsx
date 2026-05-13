@@ -1,10 +1,12 @@
+import { useTheme } from "@/hooks/use-theme";
 import { NAV_THEME } from "@/lib/theme";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { ThemeProvider } from "@react-navigation/native";
 import { PortalHost } from "@rn-primitives/portal";
 import { useFonts } from "expo-font";
 import { SplashScreen, Stack } from "expo-router";
+import { useColorScheme } from "nativewind";
 import { useEffect } from "react";
-import { useColorScheme } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { KeyboardProvider } from "react-native-keyboard-controller";
 import { Toaster } from "react-native-sonner";
@@ -13,7 +15,23 @@ import "./global.css";
 SplashScreen.preventAutoHideAsync();
 
 function RootLayoutContent() {
-  const [fontsLoaded] = useFonts({
+  const { setColorScheme } = useColorScheme();
+  useEffect(() => {
+    const loadTheme = async () => {
+      // await AsyncStorage.removeItem('theme');
+      const stored = (await AsyncStorage.getItem("theme")) as ThemeOptions;
+      if (stored) {
+        setColorScheme(stored);
+      } else {
+        // Default to light if nothing or unexpected value is stored
+        setColorScheme("light");
+      }
+    };
+
+    loadTheme();
+  }, [setColorScheme]);
+
+  const [fontsLoaded, fontError] = useFonts({
     "sans-regular": require("../assets/fonts/PlusJakartaSans-Regular.ttf"),
     "sans-bold": require("../assets/fonts/PlusJakartaSans-Bold.ttf"),
     "sans-medium": require("../assets/fonts/PlusJakartaSans-Medium.ttf"),
@@ -21,15 +39,20 @@ function RootLayoutContent() {
     "sans-extrabold": require("../assets/fonts/PlusJakartaSans-ExtraBold.ttf"),
     "sans-light": require("../assets/fonts/PlusJakartaSans-Light.ttf"),
   });
-  useEffect(() => {
-    // Hide splash only when both fonts and auth are loaded
-    if (fontsLoaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [fontsLoaded]);
 
-  // Don't render app until both are ready
-  if (!fontsLoaded) return null;
+  useEffect(() => {
+    if (fontsLoaded || fontError) {
+      // Hide the splash screen after the fonts have loaded (or an error was returned) and the UI is ready.
+      setTimeout(() => {
+        SplashScreen.hideAsync();
+      }, 2000);
+    }
+  }, [fontsLoaded, fontError]);
+
+  // Prevent rendering until the font has loaded or an error was returned
+  if (!fontsLoaded && !fontError) {
+    return null;
+  }
 
   return (
     <Stack
@@ -65,19 +88,19 @@ function RootLayoutContent() {
 }
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme() === "dark" ? "dark" : "light";
+  const { colorScheme } = useTheme();
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      {/* <SafeAreaProvider> */}
-      <ThemeProvider value={NAV_THEME[colorScheme]}>
+    <ThemeProvider value={NAV_THEME[colorScheme ?? "light"]}>
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        {/* <SafeAreaProvider> */}
         <KeyboardProvider>
           <RootLayoutContent />
           <Toaster position="top-center" richColors closeButton />
           <PortalHost />
         </KeyboardProvider>
-      </ThemeProvider>
 
-      {/* </SafeAreaProvider> */}
-    </GestureHandlerRootView>
+        {/* </SafeAreaProvider> */}
+      </GestureHandlerRootView>
+    </ThemeProvider>
   );
 }

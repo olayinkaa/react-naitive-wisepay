@@ -9,7 +9,8 @@ export default function Index() {
   useEffect(() => {
     // Check if the navigation state exists and is "ready"
     if (navigationState?.key) {
-      router.replace("/(auth)/sign-in");
+      // router.replace("/(auth)/sign-in");
+      router.replace("/(tabs)/home");
     }
   }, [navigationState?.key, router]);
 

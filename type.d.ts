@@ -12,6 +12,8 @@ declare global {
     value: T;
   };
 
+  export type ThemeOptions = "light" | "dark" | "system";
+
   interface TabIconProps {
     focused: boolean;
     icon: ImageSourcePropType;
