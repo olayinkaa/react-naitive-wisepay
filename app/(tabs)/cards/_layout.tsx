@@ -10,7 +10,7 @@ export default function CardLayout() {
         options={{ title: "Cards", header: () => <GlobalHeader /> }}
       />
       <Stack.Screen
-        name="cards/[card-detail]"
+        name="[card-detail]"
         options={{ title: "Send Money" }}
       />
     </Stack>

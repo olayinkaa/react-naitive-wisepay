@@ -15,21 +15,21 @@ import "./global.css";
 SplashScreen.preventAutoHideAsync();
 
 function RootLayoutContent() {
-  const { setColorScheme } = useColorScheme();
-  useEffect(() => {
-    const loadTheme = async () => {
-      // await AsyncStorage.removeItem('theme');
-      const stored = (await AsyncStorage.getItem("theme")) as ThemeOptions;
-      if (stored) {
-        setColorScheme(stored);
-      } else {
-        // Default to light if nothing or unexpected value is stored
-        setColorScheme("light");
-      }
-    };
+  // const { setColorScheme } = useColorScheme();
+  // useEffect(() => {
+  //   const loadTheme = async () => {
+  //     // await AsyncStorage.removeItem('theme');
+  //     const stored = (await AsyncStorage.getItem("theme")) as ThemeOptions;
+  //     if (stored) {
+  //       setColorScheme(stored);
+  //     } else {
+  //       // Default to light if nothing or unexpected value is stored
+  //       setColorScheme("light");
+  //     }
+  //   };
 
-    loadTheme();
-  }, [setColorScheme]);
+  //   loadTheme();
+  // }, [setColorScheme]);
 
   const [fontsLoaded, fontError] = useFonts({
     "sans-regular": require("../assets/fonts/PlusJakartaSans-Regular.ttf"),
@@ -88,9 +88,10 @@ function RootLayoutContent() {
 }
 
 export default function RootLayout() {
-  const { colorScheme } = useTheme();
+  // const { colorScheme } = useTheme();
   return (
-    <ThemeProvider value={NAV_THEME[colorScheme ?? "light"]}>
+    // <ThemeProvider value={NAV_THEME[colorScheme ?? "light"]}>
+    <ThemeProvider value={NAV_THEME["light"]}>
       <GestureHandlerRootView style={{ flex: 1 }}>
         {/* <SafeAreaProvider> */}
         <KeyboardProvider>

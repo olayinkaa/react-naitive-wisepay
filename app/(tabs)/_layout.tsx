@@ -69,7 +69,9 @@ export default function TabLayout() {
         <Tabs.Screen
           name="balances"
           options={{
-            tabBarLabel: "Balance",
+            tabBarLabel: "Balances",
+            headerShown: false,
+            popToTopOnBlur: true, // reset
             tabBarIcon: ({ color, size, focused }) => (
               <Ionicons
                 name={focused ? "wallet" : "wallet-outline"}
