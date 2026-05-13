@@ -2,10 +2,11 @@ import { ActiveBalancesList } from "@/components/features/balance";
 import { ActionTile } from "@/components/shared/action-tile";
 import useScreen from "@/hooks/use-screen";
 import { useTheme } from "@/hooks/use-theme";
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import React, { useState } from "react";
 import {
+  Platform,
   ScrollView,
   Text,
   TextInput,
@@ -17,6 +18,31 @@ export default function Balance() {
   const { theme } = useTheme();
   const { containerWidth } = useScreen();
   const [search, setSearch] = useState("");
+
+  const PlatformIcon =
+    Platform.select({
+      ios: (props: { size: number; color?: string }) => (
+        <Ionicons
+          name="add"
+          size={props.size}
+          color={props.color}
+          style={{
+            marginRight: 5,
+          }}
+        />
+      ),
+      android: (props: { size: number; color?: string }) => (
+        /* Automatically swaps to Material Design package on Google devices */
+        <MaterialIcons
+          name="add-circle-outline"
+          size={props.size}
+          color={props.color}
+          style={{
+            marginRight: 5,
+          }}
+        />
+      ),
+    }) || Ionicons;
 
   return (
     <LinearGradient colors={theme.gradients.background} style={{ flex: 1 }}>
@@ -65,13 +91,7 @@ export default function Balance() {
                 <View className="flex-row gap-5 items-center">
                   <Ionicons name="star-outline" size={20} color={theme.input} />
                   <TouchableOpacity className="flex-row items-center border border-border px-3 py-2 rounded-10">
-                    <Ionicons
-                      name="add"
-                      size={20}
-                      style={{
-                        marginRight: 5,
-                      }}
-                    />
+                    <PlatformIcon size={20} color="#000000" />
                     <Text>Enable</Text>
                   </TouchableOpacity>
                 </View>
@@ -85,13 +105,7 @@ export default function Balance() {
                 <View className="flex-row gap-5 items-center">
                   <Ionicons name="star-outline" size={20} color={theme.input} />
                   <TouchableOpacity className="flex-row items-center border border-border px-3 py-2 rounded-10">
-                    <Ionicons
-                      name="add"
-                      size={20}
-                      style={{
-                        marginRight: 5,
-                      }}
-                    />
+                    <PlatformIcon size={20} color="#000000" />
                     <Text>Enable</Text>
                   </TouchableOpacity>
                 </View>
