@@ -1,5 +1,4 @@
 import { ActionTile } from "@/components/shared/action-tile";
-import useScreen from "@/hooks/use-screen";
 import { QuickActionItems } from "@/lib/data";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
@@ -9,7 +8,6 @@ import Animated, { FadeInDown } from "react-native-reanimated"; // Import Reanim
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function QuickAction() {
-  const { containerWidth } = useScreen();
   const insets = useSafeAreaInsets();
   const router = useRouter();
 
@@ -17,18 +15,19 @@ export default function QuickAction() {
     // BlurView works best as an absolute background or a wrapper
     // <BlurView intensity={10} tint="light" style={StyleSheet.absoluteFill}>
     <View
-      className="flex-1 items-center"
-      style={{ paddingTop: insets.top - 30 }}
+      className="flex-1 items-center w-full bg-red-500"
+      style={{ paddingTop: insets.top }}
     >
-      <View style={{ width: containerWidth }}>
+      <View className="flex-1 w-full">
+        {/*  */}
         <View className="flex-row justify-between items-center px-4">
           <Text className="text-18 font-semibold">Quick Actions</Text>
           <Pressable onPress={() => router.dismiss()}>
             <Ionicons name="close" size={25} />
           </Pressable>
         </View>
-
-        <View className="gap-3 mt-5 px-4">
+        {/*  */}
+        <View className="gap-3 mt-5">
           {QuickActionItems.map((item, index) => (
             <Animated.View
               key={item.id}

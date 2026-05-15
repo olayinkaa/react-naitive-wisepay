@@ -71,7 +71,7 @@ export default function TabLayout() {
           options={{
             tabBarLabel: "Balances",
             headerShown: false,
-            popToTopOnBlur: true, // reset
+            // popToTopOnBlur: true, // reset
             tabBarIcon: ({ color, size, focused }) => (
               <Ionicons
                 name={focused ? "wallet" : "wallet-outline"}

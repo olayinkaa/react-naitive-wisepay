@@ -121,6 +121,11 @@ module.exports = {
       borderWidth: {
         hairline: hairlineWidth(),
       },
+      screens: {
+        sm: "480px", // Large portrait phones / small landscape viewports
+        md: "768px", // Mobile landscape viewports / Portrait tablet screens
+        lg: "1024px", // Landscape tablet layouts
+      },
     },
   },
 
