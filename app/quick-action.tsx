@@ -14,20 +14,17 @@ export default function QuickAction() {
   return (
     // BlurView works best as an absolute background or a wrapper
     // <BlurView intensity={10} tint="light" style={StyleSheet.absoluteFill}>
-    <View
-      className="flex-1 items-center w-full bg-red-500"
-      style={{ paddingTop: insets.top }}
-    >
+    <View className="flex-1 items-center" style={{ paddingTop: insets.top }}>
       <View className="flex-1 w-full">
         {/*  */}
-        <View className="flex-row justify-between items-center px-4">
+        <View className="flex-row justify-between items-center px-8">
           <Text className="text-18 font-semibold">Quick Actions</Text>
           <Pressable onPress={() => router.dismiss()}>
             <Ionicons name="close" size={25} />
           </Pressable>
         </View>
         {/*  */}
-        <View className="gap-3 mt-5">
+        <View className="gap-3 mt-5 px-8">
           {QuickActionItems.map((item, index) => (
             <Animated.View
               key={item.id}

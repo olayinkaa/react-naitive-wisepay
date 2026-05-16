@@ -17,7 +17,7 @@ export default function Home() {
   const { containerWidth } = useScreen();
   const { theme } = useTheme();
   return (
-    <LinearGradient colors={theme.gradients.background2} style={{ flex: 1 }}>
+    <LinearGradient colors={theme.gradients.background} style={{ flex: 1 }}>
       <ScrollView
         contentContainerStyle={{
           width: containerWidth,
@@ -68,10 +68,12 @@ export default function Home() {
         <LinearGradient
           colors={linearGradient.gradients.dark}
           style={{
-            padding: 20,
+            paddingHorizontal: 20,
+            paddingTop: 20,
             borderRadius: 20,
             gap: 10,
             marginVertical: 5,
+            height:140
           }}
         >
           <View className="flex-row items-center justify-between gap-3">
