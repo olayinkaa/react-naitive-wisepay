@@ -12,3 +12,13 @@ token:
 	npm run tokens
 list-route:
 	npx expo-router-sitemap  
+prebuild:
+	npx expo prebuild
+prebuild-c:
+	npx expo prebuild --clean
+tree:
+	tree app -> structure.txt  
+ios-devices:
+	xcrun simctl list devices
+run-ios:
+	npx expo run:ios --device "$$(xcrun simctl list devices booted | grep -oE '[A-F0-9-]{36}' | head -n 1)"

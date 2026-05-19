@@ -8,6 +8,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import {
   Pressable,
   ScrollView,
+  StyleSheet,
   Text,
   TouchableOpacity,
   View,
@@ -17,7 +18,7 @@ export default function Home() {
   const { containerWidth } = useScreen();
   const { theme } = useTheme();
   return (
-    <LinearGradient colors={theme.gradients.background} style={{ flex: 1 }}>
+    <LinearGradient colors={theme.gradients.background2} style={{ flex: 1 }}>
       <ScrollView
         contentContainerStyle={{
           width: containerWidth,
@@ -42,9 +43,12 @@ export default function Home() {
               Complete your verification to unlock all features
             </Text>
           </View>
-          <TouchableOpacity className="border border-mist-200 p-2 rounded-lg bg-[#D9D9D94D] self-center ">
+          <TouchableOpacity style={styles.BtnContinue}>
             <Text className="font-medium">Continue</Text>
           </TouchableOpacity>
+          {/* <TouchableOpacity className="border border-[#D9D9D9] p-2 rounded-[10px] bg-[#eedfdf4d] self-center">
+            <Text className="font-medium">Continue</Text>
+          </TouchableOpacity> */}
         </View>
         {/* Welcome */}
         <View className="flex-row items-center mt-4">
@@ -73,7 +77,7 @@ export default function Home() {
             borderRadius: 20,
             gap: 10,
             marginVertical: 5,
-            height:140
+            height: 140,
           }}
         >
           <View className="flex-row items-center justify-between gap-3">
@@ -189,3 +193,14 @@ export default function Home() {
     </LinearGradient>
   );
 }
+
+const styles = StyleSheet.create({
+  BtnContinue: {
+    borderWidth: 1,
+    alignSelf: "center",
+    padding: 10,
+    borderRadius: 8,
+    backgroundColor: "#D9D9D94D",
+    borderColor: "#D9D9D9",
+  },
+});

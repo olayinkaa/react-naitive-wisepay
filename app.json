@@ -7,7 +7,7 @@
     "icon": "./assets/images/png/icon.png",
     "scheme": "wisepay",
     "userInterfaceStyle": "dark",
-    "newArchEnabled": true,
+    // "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.anonymous.wisepay"
@@ -19,7 +19,7 @@
         "backgroundImage": "./assets/images/png/android-icon-background.png",
         "monochromeImage": "./assets/images/png/android-icon-monochrome.png"
       },
-      "edgeToEdgeEnabled": true,
+      // "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
       "package": "com.anonymous.wisepay"
     },

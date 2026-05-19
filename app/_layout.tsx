@@ -11,6 +11,7 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { KeyboardProvider } from "react-native-keyboard-controller";
 import { Toaster } from "react-native-sonner";
 import "./global.css";
+import { ReactQueryProvider } from "@/lib/react-query";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -91,17 +92,19 @@ export default function RootLayout() {
   // const { colorScheme } = useTheme();
   return (
     // <ThemeProvider value={NAV_THEME[colorScheme ?? "light"]}>
-    <ThemeProvider value={NAV_THEME["light"]}>
-      <GestureHandlerRootView style={{ flex: 1 }}>
-        {/* <SafeAreaProvider> */}
-        <KeyboardProvider>
-          <RootLayoutContent />
-          <Toaster position="top-center" richColors closeButton />
-          <PortalHost />
-        </KeyboardProvider>
+    <ReactQueryProvider>
+      <ThemeProvider value={NAV_THEME["light"]}>
+        <GestureHandlerRootView style={{ flex: 1 }}>
+          {/* <SafeAreaProvider> */}
+          <KeyboardProvider>
+            <RootLayoutContent />
+            <Toaster position="top-center" richColors closeButton />
+            <PortalHost />
+          </KeyboardProvider>
 
-        {/* </SafeAreaProvider> */}
-      </GestureHandlerRootView>
-    </ThemeProvider>
+          {/* </SafeAreaProvider> */}
+        </GestureHandlerRootView>
+      </ThemeProvider>
+    </ReactQueryProvider>
   );
 }

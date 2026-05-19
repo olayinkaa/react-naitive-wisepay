@@ -19,7 +19,11 @@ export function ResetLayoutContent() {
     >
       <Stack.Screen
         name="index"
-        options={{ headerShown: false, title: "Forgot Password" }}
+        options={{
+          headerShown: false,
+          title: "Forgot Password",
+          headerLargeTitleEnabled: true,
+        }}
       />
       <Stack.Screen
         name="verify-code"
