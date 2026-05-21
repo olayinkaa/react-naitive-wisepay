@@ -77,7 +77,7 @@ function RootLayoutContent() {
           presentation: "formSheet", // Native iOS FormSheet style
           headerShown: false,
           title: "New Action",
-          sheetAllowedDetents: [0.7, 0.9], // Optional: allows partial height
+          sheetAllowedDetents: [0.7, 0.9, 1], // Optional: allows partial height
           sheetGrabberVisible: true,
           sheetCornerRadius: 20,
           sheetElevation: 0,

@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { ms, s, vs } from "react-native-size-matters";
 
 const limitsData = [
   {
@@ -57,57 +58,58 @@ const styles = StyleSheet.create({
   limitCard: {
     borderWidth: 1,
     borderColor: "#0000001A",
-    marginTop: 20,
-    padding: 10,
-    borderRadius: 14,
+    marginTop: ms(20),
+    padding: s(20),
+    borderRadius: ms(14),
   },
   limitCardTitle: {
-    fontSize: 16,
-    fontWeight: "medium",
-    lineHeight: 24,
+    fontSize: ms(16),
+    fontWeight: "500",
+    lineHeight: ms(24),
     letterSpacing: -0.31,
   },
   limitRowContainer: {
-    gap: 10,
-    paddingBottom: 20,
+    gap: s(10),
+    paddingBottom: s(20),
   },
   limitRow: {},
   limitRowHeader: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginTop: 15,
+    marginTop: s(15),
   },
   limitRowLabel: {
     color: "#0A0A0A",
-    fontSize: 14,
-    fontWeight: "medium",
+    fontSize: ms(14),
+    fontWeight: "500",
   },
   limitRowValue: {
     color: "#717182",
+    fontSize: ms(14),
   },
   limitProgressTrack: {
     width: "100%",
-    height: 8,
+    height: vs(8),
     backgroundColor: "#ECECF0",
-    borderRadius: 999,
-    marginTop: 3,
+    borderRadius: ms(999),
+    marginTop: s(3),
   },
   limitProgressFill: {
-    height: 8,
+    height: vs(8),
     backgroundColor: "#030213",
-    borderRadius: 999,
+    borderRadius: ms(999),
   },
   limitRequestBtn: {
-    borderWidth: 1,
+    borderWidth: ms(1),
     borderColor: "#0000001A",
-    borderRadius: 8,
+    borderRadius: ms(8),
     justifyContent: "center",
     alignItems: "center",
-    paddingVertical: 10,
+    paddingVertical: ms(10),
   },
   limitRequestBtnLabel: {
-    fontSize: 14,
-    lineHeight: 20,
-    fontWeight: "medium",
+    fontSize: ms(14),
+    lineHeight: ms(20),
+    fontWeight: "500",
   },
 });

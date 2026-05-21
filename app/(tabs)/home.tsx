@@ -13,6 +13,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { ms } from "react-native-size-matters";
 
 export default function Home() {
   const { containerWidth } = useScreen();
@@ -140,7 +141,7 @@ export default function Home() {
               leading={
                 <Ionicons
                   name="trending-down"
-                  size={20}
+                  size={ms(20)}
                   style={{
                     padding: 5,
                     borderRadius: 999,
@@ -157,7 +158,7 @@ export default function Home() {
               leading={
                 <Ionicons
                   name="trending-up"
-                  size={20}
+                  size={ms(20)}
                   style={{
                     padding: 5,
                     borderRadius: 999,
@@ -174,7 +175,7 @@ export default function Home() {
               leading={
                 <Ionicons
                   name="trending-up"
-                  size={20}
+                  size={ms(20)}
                   style={{
                     padding: 5,
                     borderRadius: 999,

@@ -1,5 +1,6 @@
 import React from "react";
-import { Pressable, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
+import { ms, s } from "react-native-size-matters";
 
 interface ActionTileProps {
   leading?: string | React.ReactNode;
@@ -21,33 +22,69 @@ export const ActionTile = ({
   description: string | React.ReactNode;
   trailing?: string | React.ReactNode;
 }) => (
-  <View className="flex-row justify-between items-center bg-card p-4 rounded-2xl border border-border">
+  <View
+    style={styles.container}
+    // className="flex-row justify-between items-center bg-card p-4 rounded-2xl border border-border"
+  >
     <View className="flex-row items-center gap-3">
       {typeof leading === "string" ? (
-        <Text className="text-2xl text-success">{leading}</Text>
+        <Text style={styles.leading}>{leading}</Text>
       ) : (
         leading
       )}
       <View>
         {typeof title === "string" ? (
-          <Text className="font-medium text-16">{title}</Text>
+          <Text style={styles.title}>{title}</Text>
         ) : (
           title
         )}
         {typeof description === "string" ? (
-          <Text className="text-14 #A1A1A1 ">{description}</Text>
+          <Text style={styles.description}>{description}</Text>
         ) : (
           description
         )}
       </View>
     </View>
     {typeof trailing === "string" ? (
-      <Text className="font-semibold text-16">{trailing}</Text>
+      <Text style={styles.trailing}>{trailing}</Text>
     ) : (
       trailing
     )}
   </View>
 );
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    backgroundColor: "#ffffff",
+    padding: s(8),
+    borderRadius: ms(10),
+    borderWidth: ms(1),
+    borderColor: "#d4d4d4",
+  },
+  leading: {
+    color: "#16a34a",
+    fontSize: ms(16),
+    lineHeight: ms(24),
+  },
+  title: {
+    fontSize: ms(16),
+    fontWeight: "500",
+  },
+  description: {
+    color: "#A1A1A1",
+    fontSize: ms(14),
+    lineHeight: ms(20),
+    fontWeight: "400",
+  },
+  trailing: {
+    fontSize: ms(16),
+    lineHeight: ms(24),
+    fontWeight: "600",
+  },
+});
 
 export const ActionTile2 = ({
   leading,

@@ -22,3 +22,7 @@ ios-devices:
 	xcrun simctl list devices
 run-ios:
 	npx expo run:ios --device "$$(xcrun simctl list devices booted | grep -oE '[A-F0-9-]{36}' | head -n 1)"
+generate-apk:
+	cd android && ./gradlew assembleRelease
+install-apk:
+	adb install -r android/app/build/outputs/apk/release/app-release.apk

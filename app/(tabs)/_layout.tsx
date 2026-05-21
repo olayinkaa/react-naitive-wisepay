@@ -6,6 +6,7 @@ import { Tabs, useRouter, useSegments } from "expo-router";
 import React from "react";
 import { View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { ms, vs } from "react-native-size-matters";
 
 export default function TabLayout() {
   const inset = useSafeAreaInsets();
@@ -21,7 +22,7 @@ export default function TabLayout() {
           tabBarStyle: {
             // position: "absolute",
             // backgroundColor: "white",
-            height: 32 + inset.bottom,
+            height: vs(32) + inset.bottom,
             paddingTop: 0,
             borderTopWidth: 0.5,
             elevation: 0,
@@ -31,7 +32,7 @@ export default function TabLayout() {
             // overflow: "hidden",
           },
           tabBarLabelStyle: {
-            fontSize: 12,
+            fontSize: ms(12),
             fontWeight: "600",
           },
           tabBarLabelPosition: "below-icon", // default is 'beside-icon'

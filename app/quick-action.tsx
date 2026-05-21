@@ -3,9 +3,17 @@ import { QuickActionItems } from "@/lib/data";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import React from "react";
-import { Pressable, Text, TouchableOpacity, View } from "react-native";
+import {
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import Animated, { FadeInDown } from "react-native-reanimated"; // Import Reanimated
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { ms, s } from "react-native-size-matters";
 
 export default function QuickAction() {
   const insets = useSafeAreaInsets();
@@ -15,12 +23,18 @@ export default function QuickAction() {
     // BlurView works best as an absolute background or a wrapper
     // <BlurView intensity={10} tint="light" style={StyleSheet.absoluteFill}>
     <View className="flex-1 items-center" style={{ paddingTop: insets.top }}>
-      <View className="flex-1 w-full">
+      <ScrollView
+        contentContainerStyle={{
+          paddingBottom: s(30),
+        }}
+        showsVerticalScrollIndicator={false}
+        className="flex-1 w-full"
+      >
         {/*  */}
         <View className="flex-row justify-between items-center px-8">
-          <Text className="text-18 font-semibold">Quick Actions</Text>
+          <Text style={styles.title}>Quick Actions</Text>
           <Pressable onPress={() => router.dismiss()}>
-            <Ionicons name="close" size={25} />
+            <Ionicons name="close" size={ms(25)} />
           </Pressable>
         </View>
         {/*  */}
@@ -40,27 +54,30 @@ export default function QuickAction() {
                   leading={
                     <Ionicons
                       name={item.icon as any}
-                      size={20}
+                      size={ms(20)}
                       style={{
                         backgroundColor: "#0302131A",
-                        padding: 6,
-                        borderRadius: 6,
+                        padding: s(6),
+                        borderRadius: ms(6),
                       }}
                     />
                   }
                   title={item.title}
-                  description={
-                    <Text className="text-[#717182] text-14">
-                      {item.description}
-                    </Text>
-                  }
+                  description={item.description}
                 />
               </TouchableOpacity>
             </Animated.View>
           ))}
         </View>
-      </View>
+      </ScrollView>
     </View>
     // </BlurView>
   );
 }
+
+const styles = StyleSheet.create({
+  title: {
+    fontSize: ms(16),
+    fontWeight: "500",
+  },
+});
